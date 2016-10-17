@@ -1,0 +1,15 @@
+using system;
+
+namespace consoleApplication
+{ 
+    public class Program
+{
+    public static powerup Health;
+    public static powerup Ammo;
+    static string myString = "Welcome to my World.";
+
+    public static void Main(string[] args)
+    {
+        Health.runpowerup();
+       // console.WriteLine(myString);
+    }
