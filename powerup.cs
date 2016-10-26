@@ -1,13 +1,13 @@
 using System;
 
-public class powerup {
+public class PowerUp {
     int power = 10;
 
     int duration = 5;
 
-    string name = "powerup";
+    string name = "PowerUp";
 
-    public void runpowerup () {
-        Console.WriteLine("Using powerup")
+    public void RunPowerUp () {
+        Console.WriteLine("Using PowerUp")
     }
 }
