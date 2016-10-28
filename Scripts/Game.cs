@@ -4,12 +4,16 @@ public Game () {
     Health.power = 100;
     Health.message = "You are getting stronger.";
     Ammo.message = "You have more ammo";
+    Cave.StartMessage = "You have entered a cave";
 
 }
-public void Start (){
+    //Runs at the start of the game
+    public void Start (){
     Console.WriteLine("Please type in your name:");
     name = Console.ReadLine();
     Console.WriteLine("Your player name is " + myGame.name);
+    Walk();
+
     /*
     After prompt the game for a name we:
     Enter a cave
@@ -21,10 +25,20 @@ public void Start (){
     If dragon wins: loose Health.
     */
 }
+
+private void Walk (){
+    Random randomNum = new Random();
+    Cave.Enter();
+    Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
+}
+
+//Game Levels
+private LevelBase Cave = new LevelBase();
 //Game PowerUps
 public PowerUpBase Health = new PowerUpBase();
 public PowerUpBase Ammo = new PowerUpBase();
 
+private bool canPlay = true;
 //Game Weapons
 private WeaponBase Gun = new WeaponBase();
 private WeaponBase Rifle = new WeaponBase();
