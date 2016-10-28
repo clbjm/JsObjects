@@ -15,6 +15,7 @@ public Game () {
     while(Program.canPlay) {
         Walk();
     }
+    Console.WriteLine("You died");
     Walk();
 
     /*
