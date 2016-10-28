@@ -7,7 +7,9 @@ public Game () {
 
 }
 public void Start (){
-    Health.RunPowerUp();
+    Console.WriteLine("Please type in your name:");
+    name = Console.ReadLine();
+    Console.WriteLine("Your player name is " + myGame.name);
     /*
     After prompt the game for a name we:
     Enter a cave
