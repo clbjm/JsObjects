@@ -12,6 +12,9 @@ public Game () {
     Console.WriteLine("Please type in your name:");
     name = Console.ReadLine();
     Console.WriteLine("Your player name is " + myGame.name);
+    while(Program.canPlay) {
+        Walk();
+    }
     Walk();
 
     /*
