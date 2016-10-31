@@ -6,6 +6,7 @@ public Game () {
     Health.message = "You are getting stronger.";
     Ammo.message = "You have more ammo";
     Cave.StartMessage = "You have entered a cave";
+    UnderWater.objects = new string[] {"SeaWead", "Coral", "Fish", "Shark"};
 
 }
     //Runs at the start of the game
@@ -14,10 +15,11 @@ public Game () {
     name = Console.ReadLine();
     Console.WriteLine("Your player name is " + myGame.name);
     while(Game.canPlay) {
-        System.Threading.Thread.Sleep(2000);
-        Walk();
+        GameTimer();
+        Play();
     }
     Console.WriteLine("You died");
+    Console.WriteLine("Game Over");
     Walk();
 
     /*
@@ -32,14 +34,17 @@ public Game () {
     */
 }
 
-private void Walk (){
+private void Play (){
     Random randomNum = new Random();
     Cave.Enter();
     Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
 }
-
+public static void GameTimer () {
+        System.Threading.Thread.Sleep(2000);
+}
 //Game Levels
 private LevelBase Cave = new LevelBase();
+public static LevelBase UnderWater = new LevelBase();
 //Game PowerUps
 public PowerUpBase Health = new PowerUpBase();
 public PowerUpBase Ammo = new PowerUpBase();
