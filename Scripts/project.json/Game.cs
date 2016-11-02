@@ -33,11 +33,21 @@ public Game () {
     If dragon wins: loose Health.
     */
 }
+public string gameState;
 
 private void Play (){
     Random randomNum = new Random();
     Cave.Enter();
     Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
+    Console.WriteLine("Play commands: play, end");
+    gameState = Console.ReadLine();
+    if(gameState == "end") {
+        Console.WriteLine("Game Over");
+        Environment.Exit(0);
+    }
+}
+
+
 }
 public static void GameTimer () {
         System.Threading.Thread.Sleep(2000);
