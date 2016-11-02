@@ -39,11 +39,18 @@ private void Play (){
     Random randomNum = new Random();
     Cave.Enter();
     Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
-    Console.WriteLine("Play commands: play, end");
+    Console.WriteLine("Play commands: play, end, help");
     gameState = Console.ReadLine();
     if(gameState == "end") {
         Console.WriteLine("Game Over");
         Environment.Exit(0);
+    }
+
+    if(gameState == "help") {
+        Console.WriteLine("What do you need help for. If you can't play this game, you have issues.");
+    }
+    if(gameState != "help" && gameState != "play" && gameState != "end") {
+        Console.WriteLine(gameState + " is not a valid option.");
     }
 }
 
