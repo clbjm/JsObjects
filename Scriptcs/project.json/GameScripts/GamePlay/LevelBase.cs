@@ -5,7 +5,7 @@ public class LevelBase
     public bool entranceOpen = true;
     public string[] enveriment = {"Cold", "Wet", "Dark"};
 
-    public string[] objects = {"Rocks", "Ravine", "River", "Lava"};
+    public string[] objects;
 public void Enter (){
     Console.WriteLine(StartMessage)
 }
