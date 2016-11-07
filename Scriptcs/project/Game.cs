@@ -34,7 +34,6 @@ public Game () {
     */
 }
 public string gameState;
-
 private void Play (){
     Random randomNum = new Random();
     Cave.Enter();
@@ -57,11 +56,14 @@ private void Play (){
 }
 
 
-}
+
+
 public static void GameTimer () {
         System.Threading.Thread.Sleep(2000);
 }
-//Game Levels
+}
+
+//Game Levels 
 private LevelBase Cave = new LevelBase();
 public static LevelBase UnderWater = new LevelBase();
 //Game PowerUps
@@ -77,4 +79,4 @@ private WeaponBase Knife = new WeaponBase();
     public string name;
 
     private int score;
-    }
+}
