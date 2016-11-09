@@ -7,8 +7,9 @@ public Game () {
     Ammo.message = "You have more ammo";
     Cave.StartMessage = "You have entered a cave";
     UnderWater.objects = new string[] {"SeaWead", "Coral", "Fish", "Shark"};
-
+    {
 }
+
     //Runs at the start of the game
     public void Start (){
     Console.WriteLine("Please type in your name:");
@@ -20,8 +21,7 @@ public Game () {
     }
     Console.WriteLine("You died");
     Console.WriteLine("Game Over");
-    Walk();
-
+    }
     /*
     After prompt the game for a name we:
     Enter a cave
@@ -33,35 +33,39 @@ public Game () {
     If dragon wins: loose Health.
     */
 }
-public string gameState;
-private void Play (){
-    Random randomNum = new Random();
-    Cave.Enter();
-    Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
-    Console.WriteLine("Play commands: play, end, help");
-    gameState = Console.ReadLine();
-    if(gameState == "end") {
+private void Play(){
+    Console.WriteLine("Play commands: Play, End, Help");
+           // gameState = Console.ReadLine();
+    switch (GameStateMachine.currentGameState)
+    {
+        case GameStateMachine.GameStates.End:
         Console.WriteLine("Game Over");
         Environment.Exit(0);
+        break;
+
+        case GameStateMachine.Help:
+            Console.WriteLine("What do you need help for. If you can't play this game, you have issues.");
+            Play();
+        break;
+
+        case GameStateMachine.GameStates.Play:
+
+        break;
+
+        default:
+            Console.WriteLine(" is not a valid option.");
+            Play();
+        break;
     }
-
-    if(gameState == "help") {
-        Console.WriteLine("What do you need help for. If you can't play this game, you have issues.");
-        Play();
+        Random randomNum = new Random();
+        Cave.Enter();
+        Cave.Encounter(randomNum.Next(0, Cave.objects.Length), "Walked");
     }
-    if(gameState != "help" && gameState != "play" && gameState != "end") {
-        Console.WriteLine(gameState + " is not a valid option.");
-        Play();
-    }
-}
-
-
-
 
 public static void GameTimer () {
         System.Threading.Thread.Sleep(2000);
 }
-}
+
 
 //Game Levels 
 private LevelBase Cave = new LevelBase();
@@ -79,4 +83,5 @@ private WeaponBase Knife = new WeaponBase();
     public string name;
 
     private int score;
-}
+    }
+    
