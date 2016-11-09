@@ -7,7 +7,6 @@ public Game () {
     Ammo.message = "You have more ammo";
     Cave.StartMessage = "You have entered a cave";
     UnderWater.objects = new string[] {"SeaWead", "Coral", "Fish", "Shark"};
-    {
 }
 
     //Runs at the start of the game
@@ -58,7 +57,6 @@ private void Play(){
         break;
     }
         Random randomNum = new Random();
-        Cave.Enter();
         Cave.Encounter(randomNum.Next(0, Cave.objects.Length), "Walked");
     }
 
