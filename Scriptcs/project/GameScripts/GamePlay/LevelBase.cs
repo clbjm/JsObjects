@@ -2,7 +2,7 @@ using System;
 public class LevelBase
 {
     public WeaponBase M16 = new WeaponBase();
-    
+
     public string StartMessage;
 
     public bool entranceOpen = true;
@@ -38,9 +38,7 @@ public void Enter (){
                 case 3:
                 //Danger kills us and ends the game
                     Console.WriteLine("You've walked into " + objects[i]);
-                    if(objects[i] == "Shark") {
-                        M16.Fire();
-                    }
+                    GameStateMachine.currentGameState = GameStateMachine.GameStates.Died;
                     Game.canPlay = false;
                 break;
 
