@@ -1,8 +1,6 @@
 using System;
 public class Game {
 
-    public static Action StartGame;
-
     public static bool canPlay = true;
 
     public Game1 () {
@@ -15,7 +13,17 @@ public class Game {
 
     //Runs at the start of the game
     public void Start (){
-        StartGame();
+       
+    }
+
+    
+    private void Play (){
+        Console.WriteLine("Play commands: Play, End, Help");
+    // gameState = Console.ReadLine();
+
+        switch (GameStateMachine.currentGameState)
+        {
+            case GameStateMachine.GameStates.Start:
         Console.WriteLine("Please type in your name:");
         name = Console.ReadLine();
         Console.WriteLine("Your Player Name is " + name);
@@ -26,15 +34,9 @@ public class Game {
         }
         Console.WriteLine("You Died");
         Console.WriteLine("Game Over");
-    }
 
-    
-    private void Play (){
-        Console.WriteLine("Play commands: Play, End, Help");
-    // gameState = Console.ReadLine();
+            break;
 
-        switch (GameStateMachine.currentGameState)
-        {
 
             case GameStateMachine.GameStates.End:
                 Console.WriteLine("Game Over");
