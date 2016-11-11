@@ -50,13 +50,14 @@ public class Game {
             break;
             
             case GameStateMachine.GameStates.Play:
-                    Cave.Enter();        
         while(Game.canPlay) 
         {
+            Random randomNum = new Random();
+            Cave.Encounter(randomNum.Next(0, Cave.objects.Length), "walked");
+            Cave.Enter();
             GameTimer();
             Play();
         }
-            Play();
             break;
 
             default:
@@ -65,8 +66,7 @@ public class Game {
             break;
         }
         
-        Random randomNum = new Random();
-        Cave.Encounter(randomNum.Next(0, Cave.objects.Length), "walked");
+
     }
 
     public static void GameTimer () {

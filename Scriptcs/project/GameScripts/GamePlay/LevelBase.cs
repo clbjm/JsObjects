@@ -2,10 +2,15 @@ using System;
 public class LevelBase
 {
     public WeaponBase M16 = new WeaponBase();
+    
     public string StartMessage;
+
     public bool entranceOpen = true;
+
     public string[] enveriment = {"Cold", "Wet", "Dark"};
+
     public string[] objects;
+
 public void Enter (){
     Console.WriteLine(StartMessage);
 }
