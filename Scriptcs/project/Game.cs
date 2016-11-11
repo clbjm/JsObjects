@@ -3,22 +3,17 @@ public class Game {
 
     public static bool canPlay = true;
 
-    public Game1 () {
+    public Game () {
         Health.power = 100;
         Health.message = "You are getting stronger.";
         Ammo.message = "You have more ammo";
         Cave.StartMessage = "You have entered a cave.";
         UnderWater.objects = new string[] {"SeaWead", "Coral", "Fish", "Shark"};
     }
+    private string gameState = "Start";
+    private string toEnum;
 
-    //Runs at the start of the game
-    public void Start (){
-       
-    }
-
-    
-    private void Play (){
-        Console.WriteLine("Play commands: Play, End, Help");
+    public void Play (){
     // gameState = Console.ReadLine();
 
         switch (GameStateMachine.currentGameState)
@@ -27,16 +22,21 @@ public class Game {
         Console.WriteLine("Please type in your name:");
         name = Console.ReadLine();
         Console.WriteLine("Your Player Name is " + name);
-        Cave.Enter();        
-        while(Game.canPlay) {
-            GameTimer();
-            Play();
-        }
-        Console.WriteLine("You Died");
-        Console.WriteLine("Game Over");
+            Console.WriteLine("Play commands: Play, End, Help");
+
+            gameState = Console.ReadLine();
+            Console.WriteLine(gameState);
+            if(Enum.TryParse(gameState, TEnum)) {
+
+            }
+
+        Play();
 
             break;
-
+            case GameStateMachine.GameStates.Died:
+                Console.WriteLine("You Died");
+                Console.WriteLine("Game Over");
+                break;
 
             case GameStateMachine.GameStates.End:
                 Console.WriteLine("Game Over");
@@ -49,7 +49,13 @@ public class Game {
             break;
             
             case GameStateMachine.GameStates.Play:
-
+                    Cave.Enter();        
+        while(Game.canPlay) 
+        {
+            GameTimer();
+            Play();
+        }
+            Play();
             break;
 
             default:
