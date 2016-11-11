@@ -20,18 +20,18 @@ public class Game {
         {
             case GameStateMachine.GameStates.Start:
 
-        Console.WriteLine("Please type in your name:");
-        name = Console.ReadLine();
-        Console.WriteLine("Your Player Name is " + name);
+            Console.WriteLine("Please type in your name:");
+            name = Console.ReadLine();
+            Console.WriteLine("Your Player Name is " + name);
 
             Console.WriteLine("Play commands: Play, End, Help");
 
             gameState = Console.ReadLine();
             Console.WriteLine(gameState);
             if(Enum.TryParse(gameState, out toEnum))
-            Console.WriteLine(toEnum);
+                Console.WriteLine(toEnum);
 
-        Play();
+                Play();
 
             break;
             case GameStateMachine.GameStates.Died:
