@@ -11,24 +11,25 @@ public class Game {
         UnderWater.objects = new string[] {"SeaWead", "Coral", "Fish", "Shark"};
     }
     private string gameState = "Start";
-    private string toEnum;
+
+    private GameStateMachine.GameStates toEnum;
 
     public void Play (){
-    // gameState = Console.ReadLine();
 
-        switch (GameStateMachine.currentGameState)
+        switch (toEnum)
         {
             case GameStateMachine.GameStates.Start:
+
         Console.WriteLine("Please type in your name:");
         name = Console.ReadLine();
         Console.WriteLine("Your Player Name is " + name);
+
             Console.WriteLine("Play commands: Play, End, Help");
 
             gameState = Console.ReadLine();
             Console.WriteLine(gameState);
-            if(Enum.TryParse(gameState, TEnum)) {
-
-            }
+            if(Enum.TryParse(gameState, out toEnum))
+            Console.WriteLine(toEnum);
 
         Play();
 
