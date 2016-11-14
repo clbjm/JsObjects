@@ -11,9 +11,7 @@ public class Game {
         UnderWater.objects = new string[] {"SeaWead", "Coral", "Fish", "Shark"};
     }
     private string gameState = "Start";
-
     private GameStateMachine.GameStates toEnum;
-
     public void Play (){
 
         switch (toEnum)
@@ -50,11 +48,11 @@ public class Game {
             break;
             
             case GameStateMachine.GameStates.Play:
-        while(Game.canPlay) 
+                while(Game.canPlay) 
         {
+            Cave.Enter();
             Random randomNum = new Random();
             Cave.Encounter(randomNum.Next(0, Cave.objects.Length), "walked");
-            Cave.Enter();
             GameTimer();
             Play();
         }
