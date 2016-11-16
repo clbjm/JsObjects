@@ -52,7 +52,7 @@ public class Game {
         {
             Cave.Enter();
             Random randomNum = new Random();
-            Cave.Encounter(randomNum.Next(0, Cave.objects.Length), "walked");
+            Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
             GameTimer();
             Play();
         }
